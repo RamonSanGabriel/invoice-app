@@ -1,0 +1,60 @@
+/* Custom Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* CSS VARIABLES */
+:root {
+  --PRIMARY: #e76f51; /* #e85d04; */
+  --SECONDARY: #f4a261; /* #f48c06 */
+  --DARK: #264653; /* #303030 */
+  --LIGHT: #edf2f4;
+  --NAVYBLUE: #2e2f42;
+  --SLATE: #434455;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}

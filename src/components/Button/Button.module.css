@@ -1,0 +1,14 @@
+.myButton {
+  background-color: #8338ec;
+  border-radius: 10px;
+  border: 2px solid #3a86ff;
+
+  &:hover {
+    background-color: #3a86ff;
+    border: 2px solid #8338ec;
+  }
+  &:active,
+  &:visited {
+    background-color: #fb5607;
+  }
+}
