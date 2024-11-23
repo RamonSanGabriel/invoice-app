@@ -9,26 +9,31 @@
 .inputSearch {
   position: relative;
   width: 250px;
-  text-align: center;
+  padding-left: 40px;
+  /* text-align: center; */
   margin: 0 auto 1rem;
 }
 .icon {
   position: absolute;
-  left: 28px;
-  top: 50px;
-  fill: #ccc;
-  padding: 1px;
-  width: 20px;
-  height: 20px;
+  left: 18px;
+  top: 43px;
+
+  fill: #555;
+  padding: 0.313rem;
+  width: 30px;
+  height: 31px;
   cursor: pointer;
-  /* width: 50%; */
-  /* height: 50%; */
+
+  background-color: #ccc;
+
   stroke: #f44336;
   z-index: 9999;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   &:focus,
   &:hover {
-    fill: #555;
+    fill: #ccc;
+    background-color: #555;
+    border-radius: 0.125rem;
   }
 }

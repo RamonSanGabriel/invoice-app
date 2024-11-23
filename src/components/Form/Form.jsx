@@ -15,6 +15,7 @@ const Form = () => {
   const [clientname, setClientName] = useState('');
   const [clientaddress, setClientAddress] = useState('');
   const [invoicenumber, setInvoice] = useState('');
+  const [invoicedate, setInvoiceDate] = useState('');
 
   return (
     <>
@@ -143,25 +144,25 @@ const Form = () => {
           />
           <label htmlFor="number">Invoice Date</label>
           <input
-            type="number"
+            type="date"
             id="number"
             name="number"
             placeholder="mm/dd/yyyy"
             autoComplete="on"
             maxLength={12}
             value={number}
-            onChange={e => setNumber(e.target.value)}
+            onChange={e => setInvoiceDate(e.target.value)}
           />
           <label htmlFor="website">Due Date</label>
           <input
-            type="text"
+            type="date"
             id="website"
             name="website"
             placeholder="mm/dd/yyyy"
             autoComplete="on"
             maxLength={96}
             value={website}
-            onChange={e => setWebsite(e.target.value)}
+            onChange={e => setInvoiceDate(e.target.value)}
           />
         </div>
       </form>
