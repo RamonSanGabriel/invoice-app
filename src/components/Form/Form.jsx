@@ -11,6 +11,8 @@ const Form = () => {
   const [search, setSearch] = useState('');
   const [bankname, setBankName] = useState('');
   const [acctnumber, setAcctNumber] = useState('');
+  const [clientname, setClientName] = useState('');
+  const [clientaddress, setClientAddress] = useState('');
 
   return (
     <>
@@ -102,6 +104,76 @@ const Form = () => {
             maxLength={96}
             value={bankname}
             onChange={e => setBankName(e.target.value)}
+          />
+          <label htmlFor="acctnumber">Account</label>
+          <input
+            type="number"
+            id="acctnumber"
+            name="acctnumber"
+            placeholder="Enter your bank account number"
+            autoComplete="on"
+            maxLength={96}
+            value={acctnumber}
+            onChange={e => setAcctNumber(e.target.value)}
+          />
+        </div>
+        <div className={css.labelBox4}>
+          <label htmlFor="clientname">Client</label>
+          <input
+            type="text"
+            id="clientname"
+            name="clientname"
+            placeholder="Enter your client's name"
+            autoComplete="on"
+            maxLength={96}
+            value={clientname}
+            onChange={e => setClientName(e.target.value)}
+          />
+          <label htmlFor="clientaddress">Address</label>
+          <input
+            type="text"
+            id="clientaddress"
+            name="clientaddress"
+            placeholder="Enter your client's address"
+            autoComplete="on"
+            maxLength={96}
+            value={clientaddress}
+            onChange={e => setClientAddress(e.target.value)}
+          />
+        </div>
+        <div className={css.labelBox5}>
+          <label htmlFor="email">Invoice Number</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter invoice number"
+            autoComplete="on"
+            maxLength={255}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <label htmlFor="number">Invoice Date</label>
+          <input
+            type="number"
+            id="number"
+            name="number"
+            placeholder="mm/dd/yyyy"
+            autoComplete="on"
+            maxLength={12}
+            value={number}
+            onChange={e => setNumber(e.target.value)}
+          />
+          <label htmlFor="website">Due Date</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            placeholder="mm/dd/yyyy"
+            autoComplete="on"
+            maxLength={96}
+            value={website}
+            onChange={e => setWebsite(e.target.value)}
           />
         </div>
       </form>
