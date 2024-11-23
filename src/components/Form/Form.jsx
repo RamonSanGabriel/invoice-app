@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import css from './Form.module.css';
-import { IoSearchSharp } from 'react-icons/io5';
+import SearchInput from '../SearchInput/SearchInput';
+import SubmitBtn from '../SubmitBtn/SubmitBtn';
 
 const Form = () => {
   const [fname, setFname] = useState('');
@@ -8,32 +9,17 @@ const Form = () => {
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
   const [website, setWebsite] = useState('');
-  const [search, setSearch] = useState('');
+
   const [bankname, setBankName] = useState('');
   const [acctnumber, setAcctNumber] = useState('');
   const [clientname, setClientName] = useState('');
   const [clientaddress, setClientAddress] = useState('');
+  const [invoicenumber, setInvoice] = useState('');
 
   return (
     <>
       <form className={css.form}>
-        <div className={css.search}>
-          <label htmlFor="search">Search</label>
-          <div>
-            <IoSearchSharp className={css.icon} />
-            <input
-              className={css.inputSearch}
-              type="text"
-              id="search"
-              name="search"
-              placeholder="Type here..."
-              autoComplete="on"
-              maxLength={96}
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-          </div>
-        </div>
+        <SearchInput />
         <div className={css.labelBox1}>
           <label htmlFor="fname"> Name </label>
           <input
@@ -69,13 +55,15 @@ const Form = () => {
             maxLength={255}
             value={email}
             onChange={e => setEmail(e.target.value)}
+            required
           />
           <label htmlFor="number">Phone</label>
           <input
-            type="number"
+            type="tel"
             id="number"
             name="number"
             placeholder="(+63) 915 - 123 - 4567  "
+            pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{4}"
             autoComplete="on"
             maxLength={12}
             value={number}
@@ -142,16 +130,16 @@ const Form = () => {
           />
         </div>
         <div className={css.labelBox5}>
-          <label htmlFor="email">Invoice Number</label>
+          <label htmlFor="invoicenumber">Invoice Number</label>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type="invoice"
+            id="invoicenumber"
+            name="invoicenumber"
             placeholder="Enter invoice number"
             autoComplete="on"
-            maxLength={255}
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            maxLength={56}
+            value={invoicenumber}
+            onChange={e => setInvoice(e.target.value)}
           />
           <label htmlFor="number">Invoice Date</label>
           <input
@@ -177,6 +165,7 @@ const Form = () => {
           />
         </div>
       </form>
+      <SubmitBtn />
     </>
   );
 };

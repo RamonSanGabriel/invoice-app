@@ -1,0 +1,34 @@
+.search {
+  display: none;
+
+  @media (width > 767px) {
+    display: block;
+  }
+}
+
+.inputSearch {
+  position: relative;
+  width: 250px;
+  text-align: center;
+  margin: 0 auto 1rem;
+}
+.icon {
+  position: absolute;
+  left: 28px;
+  top: 50px;
+  fill: #ccc;
+  padding: 1px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  /* width: 50%; */
+  /* height: 50%; */
+  stroke: #f44336;
+  z-index: 9999;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  &:focus,
+  &:hover {
+    fill: #555;
+  }
+}
