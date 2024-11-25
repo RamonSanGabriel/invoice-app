@@ -6,7 +6,8 @@ const UserDetails = () => {
   return (
     <div>
       <section>
-        <h2>{name}</h2>
+        <h2>From: </h2>
+        <p>{name}</p>
         <p>{email}</p>
       </section>
     </div>

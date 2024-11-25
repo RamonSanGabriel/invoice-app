@@ -2,13 +2,10 @@ import React from 'react';
 import css from './Header.module.css';
 
 const Header = () => {
-  const handlePrint = () => {
-    window.print();
-  };
   return (
-    <div>
+    <div className={css.headerContainer}>
       <header>
-        <h2>Invoice</h2>
+        <h1>Invoice</h1>
       </header>
     </div>
   );

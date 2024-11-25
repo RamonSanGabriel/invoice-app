@@ -12,7 +12,8 @@ const ClientDetails = ({
   return (
     <div>
       <section>
-        <h2>Client Name: {name}</h2>
+        <h2>Billed to:</h2>
+        <p>{name}</p>
         <p>Client Address: {address}</p>
         <address>
           <a href="mailto:client@example.com">Client Email: {email}</a>

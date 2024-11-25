@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import css from './ShareLayout.module.css';
 import Header from '../Header/Header';
 import ClientDetails from '../ClientDetails/ClientDetails';
 import InvoiceDetails from '../InvoiceDetails/InvoiceDetails';
@@ -28,7 +29,7 @@ const SharedLayout = () => {
   const handlePrint = useReactToPrint({ contentRef });
   return (
     <>
-      <div>
+      <div className={css.sharedContainer}>
         {/*    <ReactToPrint
           trigger={() => <button>Print / Download</button>}
           content={() => contentRef.current}
@@ -43,17 +44,18 @@ const SharedLayout = () => {
               {/* Print Button */}
 
               {/* User details */}
-              <UserDetails />
-
-              {/* Client details */}
-              <ClientDetails
-                name={clientName}
-                address={clientAddress}
-                email={clientEmail}
-                contact1={clientContact1}
-                // contact2={clientContact2}
-                // contact3={clientContact3}
-              />
+              <div className={css.userClient}>
+                {/* Client details */}
+                <ClientDetails
+                  name={clientName}
+                  address={clientAddress}
+                  email={clientEmail}
+                  contact1={clientContact1}
+                  // contact2={clientContact2}
+                  // contact3={clientContact3}
+                />
+                <UserDetails />
+              </div>
               {/* Invoice details */}
               <InvoiceDetails
                 invoiceNo={invoiceNo}
@@ -61,6 +63,7 @@ const SharedLayout = () => {
                 dueDate={dueDate}
               />
               {/* Buttons */}
+              <Footer />
             </div>
             <PreviewBtn value={setShowInvoice} />
           </>
@@ -167,13 +170,13 @@ const SharedLayout = () => {
               </form>
               {/* Buttons */}
             </div>
+            {/* <Footer /> */}
             <EditBtn value={setShowInvoice} />
           </>
         )}
 
         {/* Footer details */}
       </div>
-      <Footer />
     </>
   );
 };

@@ -1,0 +1,9 @@
+.sharedContainer {
+  padding: 20px;
+}
+
+.userClient {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+}
