@@ -1,0 +1,21 @@
+.labelBox4 {
+  align-items: center;
+
+  @media (width > 767px) {
+    display: flex; /* tablet desktop */
+    gap: 0.6rem;
+    margin: 0 auto 2rem;
+  }
+  .clientName {
+    display: block;
+  }
+}
+.labelBox5 {
+  align-items: center;
+
+  @media (width > 767px) {
+    display: flex; /* tablet desktop */
+    gap: 0.6rem;
+    margin: 0 auto 2rem;
+  }
+}

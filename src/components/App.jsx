@@ -1,11 +1,11 @@
-import Footer from './Footer/Footer';
-import Form from './Form/Form';
+import SharedLayout from './SharedLayout/SharedLayout';
 
 const App = () => {
   return (
     <>
-      <Form />
-      <Footer />
+      <main>
+        <SharedLayout />
+      </main>
     </>
   );
 };

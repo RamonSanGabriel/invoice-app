@@ -2,13 +2,20 @@ form {
   /* width: 100%; */
   display: block;
   padding: 1rem;
+  /* margin: 0.625rem 0; */
   font-weight: 700;
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8rem;
   background-color: #edede9;
   & label {
     display: block;
-    margin: 0.3rem auto;
+    margin: 0.625rem auto 0;
+  }
+
+  @media (width > 767px) {
+    label {
+      margin: 0.3rem auto;
+    }
   }
 }
 /* .search {
@@ -18,52 +25,7 @@ form {
     display: block;
   }
 } */
-.labelBox1 {
-  align-items: center;
 
-  @media (width > 767px) {
-    display: flex; /* tablet desktop */
-    gap: 0.6rem;
-    margin: 2rem auto;
-  }
-}
-.labelBox2 {
-  align-items: center;
-
-  @media (width > 767px) {
-    display: flex; /* tablet desktop */
-    gap: 0.6rem;
-    margin: 0 auto 2rem;
-  }
-}
-
-.labelBox3 {
-  align-items: center;
-
-  @media (width > 767px) {
-    display: flex; /* tablet desktop */
-    gap: 0.6rem;
-    margin: 0 auto 5rem;
-  }
-}
-.labelBox4 {
-  align-items: center;
-
-  @media (width > 767px) {
-    display: flex; /* tablet desktop */
-    gap: 0.6rem;
-    margin: 0 auto 2rem;
-  }
-}
-.labelBox5 {
-  align-items: center;
-
-  @media (width > 767px) {
-    display: flex; /* tablet desktop */
-    gap: 0.6rem;
-    margin: 0 auto 2rem;
-  }
-}
 input {
   outline: none;
   width: 100%;

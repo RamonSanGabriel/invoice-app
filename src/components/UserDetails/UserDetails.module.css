@@ -1,0 +1,28 @@
+.labelBox1 {
+  align-items: center;
+
+  @media (width > 767px) {
+    display: flex; /* tablet desktop */
+    gap: 0.6rem;
+    margin: 2rem auto;
+  }
+}
+.labelBox2 {
+  align-items: center;
+
+  @media (width > 767px) {
+    display: flex; /* tablet desktop */
+    gap: 0.6rem;
+    margin: 0 auto 2rem;
+  }
+}
+
+.labelBox3 {
+  align-items: center;
+
+  @media (width > 767px) {
+    display: flex; /* tablet desktop */
+    gap: 0.6rem;
+    margin: 0 auto 5rem;
+  }
+}

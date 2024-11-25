@@ -3,6 +3,15 @@
 
   @media (width > 767px) {
     display: block;
+    padding: 1rem;
+    font-weight: 700;
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+    /* background-color: #edede9; */
+    & label {
+      display: block;
+      margin: 0.3rem auto;
+    }
   }
 }
 
@@ -18,7 +27,7 @@
   left: 18px;
   top: 43px;
 
-  fill: #555;
+  fill: #fff;
   padding: 0.313rem;
   width: 30px;
   height: 31px;
@@ -26,14 +35,14 @@
 
   background-color: #ccc;
 
-  stroke: #f44336;
+  /* stroke: #f44336; */
   z-index: 9999;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   &:focus,
   &:hover {
-    fill: #ccc;
-    background-color: #555;
+    fill: #555;
+    /* background-color: #555; */
     border-radius: 0.125rem;
   }
 }
