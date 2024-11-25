@@ -1,12 +1,16 @@
+import React from 'react';
 import css from './Header.module.css';
 
 const Header = () => {
+  const handlePrint = () => {
+    window.print();
+  };
   return (
-    <>
+    <div>
       <header>
-        <h1> Enter Invoice Details</h1>
+        <h2>Invoice</h2>
       </header>
-    </>
+    </div>
   );
 };
 

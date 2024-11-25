@@ -1,4 +1,5 @@
 export const User = {
-  fname: 'Ramon San Gabriel',
-  userAddress: 'Philippines',
+  name: 'Ramon San Gabriel',
+  email: 'ramonsangabriel.goit@gmail.com',
+  number: '+971 56 170 5622',
 };

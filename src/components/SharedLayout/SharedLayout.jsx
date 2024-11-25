@@ -1,100 +1,178 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Header from '../Header/Header';
-import UserDetails from '../UserDetails/UserDetails';
 import ClientDetails from '../ClientDetails/ClientDetails';
-import Invoices from '../Invoices/Invoices';
-import { InvoiceNo } from '../../data/invoice';
-import SearchInput from '../SearchInput/SearchInput';
-import Form from '../Form/Form';
-// import { Client } from '../../data/client';
+import InvoiceDetails from '../InvoiceDetails/InvoiceDetails';
+import UserDetails from '../UserDetails/UserDetails';
 import Footer from '../Footer/Footer';
-// import { Invoice } from '../../data/invoice';
-import { User } from '../../data/user';
+import PreviewBtn from '../Buttons/EditBtn/EditBtn';
+import EditBtn from '../Buttons/PreviewBtn/PreviewBtn';
+import { useReactToPrint } from 'react-to-print';
 
 const SharedLayout = () => {
-  const [showInvoice, setShowInvoice] = useState(true);
+  const [showInvoice, setShowInvoice] = useState(false);
+  const [invoiceNo, setInvoiceNo] = useState('');
+  const [issuedDate, setIssuedDate] = useState('');
+  const [dueDate, setDueDate] = useState('');
   const [clientAddress, setClientAddress] = useState('');
   const [clientName, setClientName] = useState('');
-  // const [showUserDetails, setShowUserDetails] = useState(false);
-  // const { name, address } = Client;
-  const { id } = InvoiceNo;
-  const { fname, userAddress } = User;
+  const [clientEmail, setClientEmail] = useState('');
+  const [clientContact1, setClientContact1] = useState('');
+  // const [clientContact2, setClientContact2] = useState('');
+  // const [clientContact3, setClientContact3] = useState('');
+
+  const contentRef = useRef();
+
+  const toInputUppercase = e => {
+    e.target.value = ('' + e.target.value).toUpperCase();
+  };
+  const handlePrint = useReactToPrint({ contentRef });
   return (
     <>
-      {showInvoice ? (
-        <div>
-          <Form />
-          <button
-            onClick={() => {
-              setShowInvoice(false);
-            }}
-          >
-            Preview Invoice
-          </button>
-        </div>
-      ) : (
-        <div>
-          {/* Header */}
-          <Invoices id={id} />
-          {/* User Details */}
-          {/* <UserDetails /> */}
-          {/*   <section>
-            <h2>User's Name: {fname}</h2>
-            <p>User's Address: {userAddress}</p>
-          </section> */}
+      <div>
+        {/*    <ReactToPrint
+          trigger={() => <button>Print / Download</button>}
+          content={() => contentRef.current}
+        /> */}
 
-          {/* Client Details */}
-          <ClientDetails name={clientName} address={clientAddress} />
-          <section>
-            <h2>Client name: {clientName}</h2>
-            <p>Client address: {clientAddress}</p>
-          </section>
-          {/* Invoice Date */}
+        {showInvoice ? (
+          <>
+            <button onClick={handlePrint}>Print / Download</button>
+            <div ref={contentRef}>
+              {/* Header */}
+              <Header />
+              {/* Print Button */}
 
-          {/* Table */}
-          <section>
-            <article>
-              <h3>Invoice Items</h3>
-              <table>
-                <thead>
-                  <tr></tr>
-                </thead>
-              </table>
-            </article>
-          </section>
-          {/* Notes */}
-          <section>
-            <label htmlFor="notes">Notes:</label>
-            {/*  <textarea
-          name="notes"
-          id="notes"
-          placeholder="Notes to client"
-          rows="5"
-          cols="50"
-        ></textarea> */}
-            {/* resize: none; */}
-          </section>
+              {/* User details */}
+              <UserDetails />
 
-          {/* Footer */}
-          <footer>
-            <ul>
-              <li>User Name</li>
-              <li>User Email</li>
-              <li>User Bank</li>
-              <li>User Account Number</li>
-              <li>User Account Number</li>
-              <li>User Website</li>
-            </ul>
-          </footer>
-          <button
-            onClick={() => {
-              setShowInvoice(true);
-            }}
-          >
-            Edit Information
-          </button>
-        </div>
-      )}
+              {/* Client details */}
+              <ClientDetails
+                name={clientName}
+                address={clientAddress}
+                email={clientEmail}
+                contact1={clientContact1}
+                // contact2={clientContact2}
+                // contact3={clientContact3}
+              />
+              {/* Invoice details */}
+              <InvoiceDetails
+                invoiceNo={invoiceNo}
+                issueDate={issuedDate}
+                dueDate={dueDate}
+              />
+              {/* Buttons */}
+            </div>
+            <PreviewBtn value={setShowInvoice} />
+          </>
+        ) : (
+          <>
+            <div>
+              <h2>Enter Invoice Details</h2>
+              <form>
+                <label htmlFor="">
+                  Client's Name:
+                  <input
+                    type="text"
+                    onInput={toInputUppercase}
+                    maxLength={22}
+                    value={clientName}
+                    onChange={e => setClientName(e.target.value)}
+                  />
+                </label>
+                <label htmlFor="">
+                  Client's Address:
+                  <input
+                    type="text"
+                    onInput={toInputUppercase}
+                    maxLength={52}
+                    value={clientAddress}
+                    onChange={e => setClientAddress(e.target.value)}
+                  />
+                </label>
+                <label htmlFor="">
+                  Client's Email:
+                  <input
+                    type="email"
+                    onInput={toInputUppercase}
+                    maxLength={42}
+                    value={clientEmail}
+                    onChange={e => setClientEmail(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Contact Number
+                  <input
+                    name="tel1"
+                    type="tel"
+                    onInput={toInputUppercase}
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    placeholder="123-456-7890"
+                    aria-label="2-digit area code"
+                    size="12"
+                    maxLength={11}
+                    minLength={11}
+                    value={clientContact1}
+                    onChange={e => setClientContact1(e.target.value)}
+                    required
+                  />
+                  {/*    <input
+                  name="tel2"
+                  type="tel"
+                  pattern="[0-9]{3}"
+                  placeholder="###"
+                  maxLength={3}
+                  aria-label="3-digit prefix"
+                  size="3"
+                  value={clientContact2}
+                  onChange={e => setClientContact2(e.target.value)}
+                />
+                -
+                <input
+                  name="tel3"
+                  type="tel"
+                  pattern="[0-9]{4}"
+                  placeholder="####"
+                  maxLength={4}
+                  aria-label="4-digit number"
+                  size="4"
+                  value={clientContact3}
+                  onChange={e => setClientContact3(e.target.value)}
+                /> */}
+                </label>
+                <label>
+                  Invoice Number:
+                  <input
+                    type="text"
+                    onInput={toInputUppercase}
+                    value={invoiceNo}
+                    onChange={e => setInvoiceNo(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Issued Date:
+                  <input
+                    type="date"
+                    value={issuedDate}
+                    onChange={e => setIssuedDate(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Due Date:
+                  <input
+                    type="date"
+                    value={dueDate}
+                    onChange={e => setDueDate(e.target.value)}
+                  />
+                </label>
+              </form>
+              {/* Buttons */}
+            </div>
+            <EditBtn value={setShowInvoice} />
+          </>
+        )}
+
+        {/* Footer details */}
+      </div>
       <Footer />
     </>
   );
