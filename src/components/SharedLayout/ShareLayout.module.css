@@ -1,11 +1,11 @@
 .sharedContainer {
-  padding: 20px;
+  padding: 10px;
 }
-
-form {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: left; */
+.userClient {
+  @media (width > 767px) {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+  }
 }
 h2 {
   display: block;
@@ -14,7 +14,7 @@ label {
   display: block;
   padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(1, 2fr);
   justify-content: center;
   align-items: center;
   /* grid-template-columns: repeat(2, 2fr); */
@@ -25,9 +25,9 @@ input {
   outline: none;
   border: none;
   border-radius: 6px;
-  padding: 15px 5px;
+  padding: 15px;
   width: 100%;
-  margin: 5px 10px;
+  /* margin: 5px 10px; */
 
   @media (width > 767px) {
     padding: 20px;

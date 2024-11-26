@@ -116,7 +116,7 @@ const SharedLayout = () => {
                     placeholder="+63 956 123 4567"
                     aria-label="2-digit area code"
                     size="12"
-                    maxLength={12}
+                    maxLength={16}
                     value={clientContact1}
                     onChange={e => setClientContact1(e.target.value)}
                     required

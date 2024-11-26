@@ -1,14 +1,16 @@
-import React from 'react';
 import { User } from '../../data/user';
+import css from './UserDetails.module.css';
 
 const UserDetails = () => {
-  const { name, email } = User;
+  const { name, email, address, number } = User;
   return (
     <div>
       <section>
-        <h2>From: </h2>
-        <p>{name}</p>
+        <h3>From: </h3>
+        <h4>{name}</h4>
+        <p>{address}</p>
         <p>{email}</p>
+        <p>{number}</p>
       </section>
     </div>
   );

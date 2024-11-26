@@ -1,8 +1,13 @@
 section {
   background-color: #ccc;
-  padding: 20px;
+  /* padding: 20px; */
 }
+p {
+  display: flex;
+  margin: 0;
 
+  /* font-size: 0.75rem; */
+}
 a {
   color: var(--NAVYBLUE);
 }

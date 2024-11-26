@@ -11,18 +11,18 @@ const ClientDetails = ({
   return (
     <>
       <section>
-        <h2>Billed to: </h2>
-        <p>Name: {name}</p>
-        <p>Address: {address}</p>
+        <h3>Billed to: </h3>
+        <h4>
+          <p>{name}</p>
+        </h4>
+        <p>{address}</p>
         <address>
-          <p> Email: </p>
-          <a href="mailto:client@example.com">{email}</a>
-          <p> Contact Number:</p>
-          <a href="tel:12345">
-            {contact1}
-            {/* {contact2}
-            {contact3} */}
-          </a>
+          <p>
+            <a href="mailto:client@example.com">{email}</a>
+          </p>
+          <p>
+            <a href="tel:12345">{contact1}</a>
+          </p>
         </address>
       </section>
     </>
