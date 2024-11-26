@@ -5,22 +5,23 @@ const ClientDetails = ({
   address,
   email,
   contact1,
-  contact2,
-  contact3,
+  // contact2,
+  // contact3,
 }) => {
   return (
     <>
       <section>
-        <h2>Billed to:</h2>
-        <p>{name}</p>
-        <p>Client Address: {address}</p>
+        <h2>Billed to: </h2>
+        <p>Name: {name}</p>
+        <p>Address: {address}</p>
         <address>
-          <a href="mailto:client@example.com">Client Email: {email}</a>
+          <p> Email: </p>
+          <a href="mailto:client@example.com">{email}</a>
+          <p> Contact Number:</p>
           <a href="tel:12345">
-            Client Contact Number:
             {contact1}
-            {contact2}
-            {contact3}
+            {/* {contact2}
+            {contact3} */}
           </a>
         </address>
       </section>

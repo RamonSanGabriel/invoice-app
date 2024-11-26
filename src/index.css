@@ -15,6 +15,7 @@
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
+  color: var(--SLATE);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,6 +59,7 @@ button {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 textarea {

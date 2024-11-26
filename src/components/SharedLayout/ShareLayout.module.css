@@ -6,22 +6,31 @@ form {
   /* display: flex; */
   /* flex-direction: column; */
   /* justify-content: left; */
-
-  @media (width > 767px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-evenly;
-  }
+}
+h2 {
+  display: block;
 }
 label {
+  display: block;
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  align-items: center;
+  /* grid-template-columns: repeat(2, 2fr); */
 }
 input {
+  display: block;
   background-color: #ccc;
   outline: none;
   border: none;
-  padding: 5px;
-  height: 20px;
+  border-radius: 6px;
+  padding: 15px 5px;
+  width: 100%;
+  margin: 5px 10px;
+
+  @media (width > 767px) {
+    padding: 20px;
+    border-radius: 12px;
+  }
 }

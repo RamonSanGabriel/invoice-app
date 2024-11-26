@@ -7,6 +7,7 @@ import UserDetails from '../UserDetails/UserDetails';
 import Footer from '../Footer/Footer';
 import PreviewBtn from '../Buttons/EditBtn/EditBtn';
 import EditBtn from '../Buttons/PreviewBtn/PreviewBtn';
+import { FooterDetails } from '../../data/footer';
 import { useReactToPrint } from 'react-to-print';
 
 const SharedLayout = () => {
@@ -23,6 +24,7 @@ const SharedLayout = () => {
 
   const contentRef = useRef();
 
+  const { accountName } = FooterDetails;
   const toInputUppercase = e => {
     e.target.value = ('' + e.target.value).toUpperCase();
   };
@@ -38,12 +40,18 @@ const SharedLayout = () => {
 
         {showInvoice ? (
           <>
+            {/* Print Button */}
             <button onClick={handlePrint}>Print / Download</button>
-            <div ref={contentRef}>
+            <div className={css.sharedContainer} ref={contentRef}>
               {/* Header */}
               <Header />
-              {/* Print Button */}
 
+              {/* Invoice details */}
+              <InvoiceDetails
+                invoiceNo={invoiceNo}
+                issueDate={issuedDate}
+                dueDate={dueDate}
+              />
               {/* User details */}
               <div className={css.userClient}>
                 {/* Client details */}
@@ -57,13 +65,7 @@ const SharedLayout = () => {
                 />
                 <UserDetails />
               </div>
-              {/* Invoice details */}
-              <InvoiceDetails
-                invoiceNo={invoiceNo}
-                issueDate={issuedDate}
-                dueDate={dueDate}
-              />
-              {/* Buttons */}
+              {/* Footer details */}
               <Footer />
             </div>
             <PreviewBtn value={setShowInvoice} />
@@ -71,9 +73,9 @@ const SharedLayout = () => {
         ) : (
           <>
             <div>
-              <h2> Client Details</h2>
               {/* Forms */}
               <form>
+                <h2> Client Details</h2>
                 <label>
                   Name:
                   <input
@@ -111,11 +113,10 @@ const SharedLayout = () => {
                     type="tel"
                     onInput={toInputUppercase}
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    placeholder="123-456-7890"
+                    placeholder="+63 956 123 4567"
                     aria-label="2-digit area code"
                     size="12"
-                    maxLength={11}
-                    minLength={11}
+                    maxLength={12}
                     value={clientContact1}
                     onChange={e => setClientContact1(e.target.value)}
                     required
@@ -179,9 +180,10 @@ const SharedLayout = () => {
             <EditBtn value={setShowInvoice} />
           </>
         )}
-
-        {/* Footer details */}
       </div>
+      <p>
+        &copy; {new Date().getFullYear()} Developed by {accountName}
+      </p>
     </>
   );
 };

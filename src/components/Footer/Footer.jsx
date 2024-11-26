@@ -4,6 +4,7 @@ import css from './Footer.module.css';
 
 const Footer = () => {
   const { bankName, accountName, accountNumber, mobile, email } = FooterDetails;
+
   return (
     <div>
       <footer>
@@ -14,9 +15,6 @@ const Footer = () => {
           <li>Mobile: {mobile} </li>
           <li>Email: {email}</li>
         </ul>
-        <p className={css.footerText}>
-          &copy; {new Date().getFullYear()} Developed by {accountName}
-        </p>
       </footer>
     </div>
   );
