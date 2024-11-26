@@ -26,6 +26,7 @@ const SharedLayout = () => {
   const toInputUppercase = e => {
     e.target.value = ('' + e.target.value).toUpperCase();
   };
+
   const handlePrint = useReactToPrint({ contentRef });
   return (
     <>
@@ -70,10 +71,11 @@ const SharedLayout = () => {
         ) : (
           <>
             <div>
-              <h2>Enter Invoice Details</h2>
+              <h2> Client Details</h2>
+              {/* Forms */}
               <form>
-                <label htmlFor="">
-                  Client's Name:
+                <label>
+                  Name:
                   <input
                     type="text"
                     onInput={toInputUppercase}
@@ -82,8 +84,8 @@ const SharedLayout = () => {
                     onChange={e => setClientName(e.target.value)}
                   />
                 </label>
-                <label htmlFor="">
-                  Client's Address:
+                <label>
+                  Address:
                   <input
                     type="text"
                     onInput={toInputUppercase}
@@ -92,8 +94,8 @@ const SharedLayout = () => {
                     onChange={e => setClientAddress(e.target.value)}
                   />
                 </label>
-                <label htmlFor="">
-                  Client's Email:
+                <label>
+                  Email:
                   <input
                     type="email"
                     onInput={toInputUppercase}
@@ -103,7 +105,7 @@ const SharedLayout = () => {
                   />
                 </label>
                 <label>
-                  Contact Number
+                  Phone:
                   <input
                     name="tel1"
                     type="tel"
@@ -142,11 +144,14 @@ const SharedLayout = () => {
                   onChange={e => setClientContact3(e.target.value)}
                 /> */}
                 </label>
+                <h2> Invoice Details</h2>
+
                 <label>
-                  Invoice Number:
+                  Invoice No:
                   <input
                     type="text"
                     onInput={toInputUppercase}
+                    maxLength={7}
                     value={invoiceNo}
                     onChange={e => setInvoiceNo(e.target.value)}
                   />

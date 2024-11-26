@@ -2,8 +2,26 @@
   padding: 20px;
 }
 
-.userClient {
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: space-between;
+form {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: left; */
+
+  @media (width > 767px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-evenly;
+  }
+}
+label {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+input {
+  background-color: #ccc;
+  outline: none;
+  border: none;
+  padding: 5px;
+  height: 20px;
 }

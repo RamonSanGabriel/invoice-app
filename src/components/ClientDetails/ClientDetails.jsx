@@ -1,5 +1,4 @@
-import React from 'react';
-// import { useState } from 'react';
+import css from './ClientDetails.module.css';
 
 const ClientDetails = ({
   name,
@@ -10,7 +9,7 @@ const ClientDetails = ({
   contact3,
 }) => {
   return (
-    <div>
+    <>
       <section>
         <h2>Billed to:</h2>
         <p>{name}</p>
@@ -25,7 +24,7 @@ const ClientDetails = ({
           </a>
         </address>
       </section>
-    </div>
+    </>
   );
 };
 
