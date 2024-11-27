@@ -15,10 +15,10 @@ const ClientDetails = ({
         <h4>
           <p>{name}</p>
         </h4>
-        <p>{address}</p>
+        <p className={css.clientAddress}>{address}</p>
         <address>
           <p>
-            <a href="mailto:client@example.com">{email}</a>
+            <a href={`mailto:${email}`}>{email} </a>
           </p>
           <p>
             <a href="tel:12345">{contact1}</a>

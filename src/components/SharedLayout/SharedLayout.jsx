@@ -32,8 +32,13 @@ const SharedLayout = () => {
   const contentRef = useRef();
 
   const { accountName } = FooterDetails;
+
   const toInputUppercase = e => {
     e.target.value = ('' + e.target.value).toUpperCase();
+  };
+
+  const toInputLowerCase = e => {
+    e.target.value = ('' + e.target.value).toLowerCase();
   };
 
   const handlePrint = useReactToPrint({ contentRef });
@@ -101,8 +106,9 @@ const SharedLayout = () => {
                         Address:
                         <IoHomeSharp className={css.icon} />
                         <input
+                          className={css.inputAddress}
                           type="text"
-                          onInput={toInputUppercase}
+                          // onInput={toInputUppercase}
                           maxLength={52}
                           value={clientAddress}
                           onChange={e => setClientAddress(e.target.value)}
@@ -116,7 +122,7 @@ const SharedLayout = () => {
                   <MdEmail className={css.icon} />
                   <input
                     type="email"
-                    onInput={toInputUppercase}
+                    onInput={toInputLowerCase}
                     maxLength={42}
                     value={clientEmail}
                     onChange={e => setClientEmail(e.target.value)}

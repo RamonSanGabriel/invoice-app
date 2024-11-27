@@ -15,3 +15,6 @@ p {
 a {
   color: var(--NAVYBLUE);
 }
+.clientAddress {
+  text-transform: capitalize;
+}

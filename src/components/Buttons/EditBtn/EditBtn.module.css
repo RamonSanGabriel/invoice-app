@@ -21,6 +21,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
+  margin-top: 20px;
 }
 
 .editBtn:hover,
