@@ -1,5 +1,6 @@
 .sharedContainer {
   padding: 10px;
+
   @media (width > 767px) {
     padding: 20px 50px;
   }
@@ -9,10 +10,10 @@
 
   @media (width > 767px) {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    /* grid-template-columns: 2fr 2fr; */
   }
 }
-.userClient .userClientItem {
+.userClientItem {
   @media (width > 767px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

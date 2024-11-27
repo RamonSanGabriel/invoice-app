@@ -7,8 +7,8 @@ const UserDetails = () => {
   const { name, email, address, number } = User;
   return (
     <>
-      <section>
-        <div className={css.userDetailsDiv}>
+      <div>
+        <section className={css.userDetailsDiv}>
           <h3 className={css.userDetailsFrom}>From: </h3>
           <h4 className={css.userDetailsName}>{name}</h4>
           <p className={css.userDetailsAddress}>{address}</p>
@@ -16,8 +16,8 @@ const UserDetails = () => {
             <a href="mailto:{userEmail}">{email}</a>
           </p>
           <p>{number}</p>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 };
