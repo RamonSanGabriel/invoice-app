@@ -1,5 +1,9 @@
 section {
   background-color: #ccc;
+
+  @media (width > 767px) {
+    height: 300px;
+  }
   /* padding: 20px; */
 }
 p {

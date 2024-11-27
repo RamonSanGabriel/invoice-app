@@ -11,6 +11,7 @@ h2 {
   display: block;
 }
 label {
+  position: relative;
   display: block;
   padding: 10px;
   display: grid;
@@ -19,18 +20,46 @@ label {
   align-items: center;
   /* grid-template-columns: repeat(2, 2fr); */
 }
+.icon {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  height: 20px;
+  width: 20px;
+}
+.iconInvoice {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  height: 15px;
+  width: 15px;
+}
 input {
   display: block;
   background-color: #ccc;
   outline: none;
   border: none;
   border-radius: 6px;
-  padding: 15px;
+  padding: 20px 40px;
   width: 100%;
   /* margin: 5px 10px; */
 
   @media (width > 767px) {
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 12px;
+  }
+}
+
+article {
+  @media (width > 767px) {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+.clientDiv {
+  @media (width > 767px) {
+    display: grid;
+    grid-template-columns: repeat(2, 380px);
   }
 }

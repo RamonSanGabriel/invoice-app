@@ -9,6 +9,13 @@ import PreviewBtn from '../Buttons/EditBtn/EditBtn';
 import EditBtn from '../Buttons/PreviewBtn/PreviewBtn';
 import { FooterDetails } from '../../data/footer';
 import { useReactToPrint } from 'react-to-print';
+import FooterDevBy from '../Footer/FooterDevBy/FooterDevBy';
+/* Input Icons */
+import { FaUser } from 'react-icons/fa6';
+import { IoHomeSharp } from 'react-icons/io5';
+import { MdEmail } from 'react-icons/md';
+import { MdLocalPhone } from 'react-icons/md';
+import { FaFileInvoice } from 'react-icons/fa';
 
 const SharedLayout = () => {
   const [showInvoice, setShowInvoice] = useState(false);
@@ -76,28 +83,37 @@ const SharedLayout = () => {
               {/* Forms */}
               <form>
                 <h2> Client Details</h2>
-                <label>
-                  Name:
-                  <input
-                    type="text"
-                    onInput={toInputUppercase}
-                    maxLength={22}
-                    value={clientName}
-                    onChange={e => setClientName(e.target.value)}
-                  />
-                </label>
-                <label>
-                  Address:
-                  <input
-                    type="text"
-                    onInput={toInputUppercase}
-                    maxLength={52}
-                    value={clientAddress}
-                    onChange={e => setClientAddress(e.target.value)}
-                  />
-                </label>
+                <article>
+                  <div className={css.clientDiv}>
+                    <label>
+                      Name:
+                      <FaUser className={css.icon} />
+                      <input
+                        type="text"
+                        onInput={toInputUppercase}
+                        maxLength={22}
+                        value={clientName}
+                        onChange={e => setClientName(e.target.value)}
+                      />
+                    </label>
+                    <div>
+                      <label>
+                        Address:
+                        <IoHomeSharp className={css.icon} />
+                        <input
+                          type="text"
+                          onInput={toInputUppercase}
+                          maxLength={52}
+                          value={clientAddress}
+                          onChange={e => setClientAddress(e.target.value)}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </article>
                 <label>
                   Email:
+                  <MdEmail className={css.icon} />
                   <input
                     type="email"
                     onInput={toInputUppercase}
@@ -108,6 +124,7 @@ const SharedLayout = () => {
                 </label>
                 <label>
                   Phone:
+                  <MdLocalPhone className={css.icon} />
                   <input
                     name="tel1"
                     type="tel"
@@ -149,6 +166,7 @@ const SharedLayout = () => {
 
                 <label>
                   Invoice No:
+                  <FaFileInvoice className={css.iconInvoice} />
                   <input
                     type="text"
                     onInput={toInputUppercase}
@@ -181,9 +199,7 @@ const SharedLayout = () => {
           </>
         )}
       </div>
-      <p>
-        &copy; {new Date().getFullYear()} Developed by {accountName}
-      </p>
+      <FooterDevBy accountName={accountName} />
     </>
   );
 };
