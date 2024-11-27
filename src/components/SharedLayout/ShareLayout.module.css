@@ -1,10 +1,21 @@
 .sharedContainer {
   padding: 10px;
+  @media (width > 767px) {
+    padding: 20px 50px;
+  }
 }
 .userClient {
+  padding: 10px 0px;
+
   @media (width > 767px) {
     display: grid;
     grid-template-columns: 2fr 2fr;
+  }
+}
+.userClient .userClientItem {
+  @media (width > 767px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 h2 {
@@ -53,13 +64,16 @@ input {
 article {
   @media (width > 767px) {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    /*   grid-template-rows: repeat(1, 5fr); */
+    grid-template-columns: repeat(3, 600px);
+    grid-gap: 10px 10px;
   }
 }
 
-.clientDiv {
+.articleInvoice {
   @media (width > 767px) {
     display: grid;
-    grid-template-columns: repeat(2, 380px);
+    grid-template-columns: repeat(3, 230px);
+    /* grid-gap: 10px 10px; */
   }
 }

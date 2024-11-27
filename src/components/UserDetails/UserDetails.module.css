@@ -2,3 +2,15 @@
   background-color: #ccc;
   /* padding: 20px; */
 }
+.userDetailsDiv {
+  @media (width > 767px) {
+    padding: 40px 20px;
+  }
+}
+
+.userDetailsFrom,
+.userDetailsName,
+.userDetailsAddress,
+.userDetailsEmail {
+  margin-bottom: 1rem;
+}

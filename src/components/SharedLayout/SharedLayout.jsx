@@ -26,8 +26,6 @@ const SharedLayout = () => {
   const [clientName, setClientName] = useState('');
   const [clientEmail, setClientEmail] = useState('');
   const [clientContact1, setClientContact1] = useState('');
-  // const [clientContact2, setClientContact2] = useState('');
-  // const [clientContact3, setClientContact3] = useState('');
 
   const contentRef = useRef();
 
@@ -64,18 +62,20 @@ const SharedLayout = () => {
                 issueDate={issuedDate}
                 dueDate={dueDate}
               />
-              {/* User details */}
               <div className={css.userClient}>
-                {/* Client details */}
-                <ClientDetails
-                  name={clientName}
-                  address={clientAddress}
-                  email={clientEmail}
-                  contact1={clientContact1}
-                  // contact2={clientContact2}
-                  // contact3={clientContact3}
-                />
-                <UserDetails />
+                <div className={css.userClientItem}>
+                  {/* Client details */}
+                  <ClientDetails
+                    name={clientName}
+                    address={clientAddress}
+                    email={clientEmail}
+                    contact1={clientContact1}
+                    // contact2={clientContact2}
+                    // contact3={clientContact3}
+                  />
+                  {/* User details */}
+                  <UserDetails />
+                </div>
               </div>
               {/* Footer details */}
               <Footer />
@@ -84,119 +84,110 @@ const SharedLayout = () => {
           </>
         ) : (
           <>
-            <div>
+            <div className={css.sharedContainer}>
               {/* Forms */}
               <form>
                 <h2> Client Details</h2>
                 <article>
                   <div className={css.clientDiv}>
-                    <label>
+                    <label htmlFor="clientDetails">
                       Name:
                       <FaUser className={css.icon} />
                       <input
                         type="text"
                         onInput={toInputUppercase}
-                        maxLength={22}
+                        maxLength={62}
                         value={clientName}
                         onChange={e => setClientName(e.target.value)}
                       />
                     </label>
-                    <div>
-                      <label>
-                        Address:
-                        <IoHomeSharp className={css.icon} />
-                        <input
-                          className={css.inputAddress}
-                          type="text"
-                          // onInput={toInputUppercase}
-                          maxLength={52}
-                          value={clientAddress}
-                          onChange={e => setClientAddress(e.target.value)}
-                        />
-                      </label>
-                    </div>
+                  </div>
+                  <div className={css.clientDiv}>
+                    <label htmlFor="clientAddress">
+                      Address:
+                      <IoHomeSharp className={css.icon} />
+                      <input
+                        className={css.inputAddress}
+                        type="text"
+                        // onInput={toInputUppercase}
+                        maxLength={152}
+                        value={clientAddress}
+                        onChange={e => setClientAddress(e.target.value)}
+                      />
+                    </label>
                   </div>
                 </article>
-                <label>
-                  Email:
-                  <MdEmail className={css.icon} />
-                  <input
-                    type="email"
-                    onInput={toInputLowerCase}
-                    maxLength={42}
-                    value={clientEmail}
-                    onChange={e => setClientEmail(e.target.value)}
-                  />
-                </label>
-                <label>
-                  Phone:
-                  <MdLocalPhone className={css.icon} />
-                  <input
-                    name="tel1"
-                    type="tel"
-                    onInput={toInputUppercase}
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    placeholder="+63 956 123 4567"
-                    aria-label="2-digit area code"
-                    size="12"
-                    maxLength={16}
-                    value={clientContact1}
-                    onChange={e => setClientContact1(e.target.value)}
-                    required
-                  />
-                  {/*    <input
-                  name="tel2"
-                  type="tel"
-                  pattern="[0-9]{3}"
-                  placeholder="###"
-                  maxLength={3}
-                  aria-label="3-digit prefix"
-                  size="3"
-                  value={clientContact2}
-                  onChange={e => setClientContact2(e.target.value)}
-                />
-                -
-                <input
-                  name="tel3"
-                  type="tel"
-                  pattern="[0-9]{4}"
-                  placeholder="####"
-                  maxLength={4}
-                  aria-label="4-digit number"
-                  size="4"
-                  value={clientContact3}
-                  onChange={e => setClientContact3(e.target.value)}
-                /> */}
-                </label>
-                <h2> Invoice Details</h2>
+                <article>
+                  <div className={css.clientDiv}>
+                    <label htmlFor="clientEmail">
+                      Email:
+                      <MdEmail className={css.icon} />
+                      <input
+                        type="email"
+                        onInput={toInputLowerCase}
+                        maxLength={62}
+                        value={clientEmail}
+                        onChange={e => setClientEmail(e.target.value)}
+                      />
+                    </label>
+                  </div>
 
-                <label>
-                  Invoice No:
-                  <FaFileInvoice className={css.iconInvoice} />
-                  <input
-                    type="text"
-                    onInput={toInputUppercase}
-                    maxLength={7}
-                    value={invoiceNo}
-                    onChange={e => setInvoiceNo(e.target.value)}
-                  />
-                </label>
-                <label>
-                  Issued Date:
-                  <input
-                    type="date"
-                    value={issuedDate}
-                    onChange={e => setIssuedDate(e.target.value)}
-                  />
-                </label>
-                <label>
-                  Due Date:
-                  <input
-                    type="date"
-                    value={dueDate}
-                    onChange={e => setDueDate(e.target.value)}
-                  />
-                </label>
+                  <div className={css.clientDiv}>
+                    <label htmlFor="clientContact1">
+                      Phone:
+                      <MdLocalPhone className={css.icon} />
+                      <input
+                        name="tel1"
+                        type="tel"
+                        onInput={toInputUppercase}
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        placeholder="+63 956 123 4567"
+                        aria-label="2-digit area code"
+                        size="12"
+                        maxLength={16}
+                        value={clientContact1}
+                        onChange={e => setClientContact1(e.target.value)}
+                        required
+                      />
+                    </label>
+                  </div>
+                </article>
+                <h2> Invoice Details</h2>
+                <article className={css.articleInvoice}>
+                  <div className={css.clientDiv}>
+                    <label>
+                      Invoice No:
+                      <FaFileInvoice className={css.iconInvoice} />
+                      <input
+                        type="text"
+                        onInput={toInputUppercase}
+                        maxLength={10}
+                        value={invoiceNo}
+                        onChange={e => setInvoiceNo(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className={css.clientDiv}>
+                    <label>
+                      Issued Date:
+                      <input
+                        type="date"
+                        value={issuedDate}
+                        onChange={e => setIssuedDate(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className={css.clientDiv}>
+                    <label>
+                      Due Date:
+                      <input
+                        type="date"
+                        value={dueDate}
+                        onChange={e => setDueDate(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                </article>
               </form>
               {/* Buttons */}
             </div>
