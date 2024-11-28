@@ -1,4 +1,3 @@
-import React from 'react';
 import css from './PreviewBtn.module.css';
 
 const PreviewBtn = ({ value }) => {

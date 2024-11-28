@@ -1,7 +1,9 @@
+import css from './InvoiceDetails.module.css';
+
 const InvoiceDetails = ({ invoiceNo, issueDate, dueDate }) => {
   return (
-    <div>
-      <article>
+    <>
+      <div>
         <ul>
           <li>
             <h4>Invoice Number: </h4>
@@ -14,13 +16,12 @@ const InvoiceDetails = ({ invoiceNo, issueDate, dueDate }) => {
           <li>
             <h4>Due Date: </h4>
             <span>
-              {' '}
               <p>{dueDate}</p>
             </span>
           </li>
         </ul>
-      </article>
-    </div>
+      </div>
+    </>
   );
 };
 

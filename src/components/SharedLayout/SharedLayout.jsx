@@ -42,7 +42,7 @@ const SharedLayout = () => {
   const handlePrint = useReactToPrint({ contentRef });
   return (
     <>
-      <div className={css.sharedContainer}>
+      <div>
         {/*    <ReactToPrint
           trigger={() => <button>Print / Download</button>}
           content={() => contentRef.current}
@@ -51,43 +51,49 @@ const SharedLayout = () => {
         {showInvoice ? (
           <>
             {/* Print Button */}
-            <button onClick={handlePrint}>Print / Download</button>
-            <div className={css.sharedContainer} ref={contentRef}>
-              {/* Header */}
-              <Header />
+            <div className={css.sharedContainer}>
+              <button className={css.previewBtn} onClick={handlePrint}>
+                Print / Download
+              </button>
+            </div>
+            <div ref={contentRef}>
+              <div className={css.sharedContainer}>
+                {/* Header */}
+                <Header />
 
-              {/* Invoice details */}
-              <InvoiceDetails
-                invoiceNo={invoiceNo}
-                issueDate={issuedDate}
-                dueDate={dueDate}
-              />
-              <div className={css.userClient}>
-                <div className={css.userClientItem}>
-                  {/* Client details */}
-                  <ClientDetails
-                    name={clientName}
-                    address={clientAddress}
-                    email={clientEmail}
-                    contact1={clientContact1}
-                    // contact2={clientContact2}
-                    // contact3={clientContact3}
-                  />
-                  {/* User details */}
-                  <UserDetails />
+                {/* Invoice details */}
+                <InvoiceDetails
+                  invoiceNo={invoiceNo}
+                  issueDate={issuedDate}
+                  dueDate={dueDate}
+                />
+                <div className={css.userClient}>
+                  <div className={css.userClientItem}>
+                    {/* Client details */}
+                    <ClientDetails
+                      name={clientName}
+                      address={clientAddress}
+                      email={clientEmail}
+                      contact1={clientContact1}
+                      // contact2={clientContact2}
+                      // contact3={clientContact3}
+                    />
+                    {/* User details */}
+                    <UserDetails />
+                  </div>
                 </div>
+                {/* Footer details */}
+                <Footer />
               </div>
-              {/* Footer details */}
-              <Footer />
             </div>
             <PreviewBtn value={setShowInvoice} />
           </>
         ) : (
           <>
-            <div className={css.sharedContainer}>
+            <div>
               {/* Forms */}
               <form>
-                <h2> Client Details</h2>
+                <h2 className={css.formHeader}> Client Details</h2>
                 <article>
                   <div className={css.clientDiv}>
                     <label htmlFor="clientDetails">
@@ -123,6 +129,7 @@ const SharedLayout = () => {
                       Email:
                       <MdEmail className={css.icon} />
                       <input
+                        className={css.formInput}
                         type="email"
                         onInput={toInputLowerCase}
                         maxLength={62}
@@ -159,6 +166,7 @@ const SharedLayout = () => {
                       Invoice No:
                       <FaFileInvoice className={css.iconInvoice} />
                       <input
+                        className={css.formInput}
                         type="text"
                         onInput={toInputUppercase}
                         maxLength={10}
@@ -171,6 +179,7 @@ const SharedLayout = () => {
                     <label>
                       Issued Date:
                       <input
+                        className={css.formInput}
                         type="date"
                         value={issuedDate}
                         onChange={e => setIssuedDate(e.target.value)}
@@ -181,6 +190,7 @@ const SharedLayout = () => {
                     <label>
                       Due Date:
                       <input
+                        className={css.formInput}
                         type="date"
                         value={dueDate}
                         onChange={e => setDueDate(e.target.value)}
